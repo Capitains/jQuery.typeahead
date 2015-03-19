@@ -51,6 +51,11 @@ module.exports = function(grunt) {
           browsers : ["PhantomJS"]
         }
       }
+    },
+    release : {
+      options: {
+        additionalFiles: ['bower.json']
+      }
     }
   });
 
