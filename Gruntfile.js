@@ -15,33 +15,13 @@ module.exports = function(grunt) {
     concat: {
       all: {
         files : {
-          'dist/jquery.cts.typeahead.js' : ['src/plugins/jquery.cts.typeahead.js' , 'src/i18n/*.js']
+          'dist/jquery.cts.typeahead.js'  : ['src/jquery.cts.typeahead.js' , 'src/i18n/*.js'],
+          'dist/jquery.cts.typeahead.css' : ['src/css/jquery.cts.typeahead.css']
         }
       }
     },
     jslint: {
       all: ['src/*.js', 'src/**/*.js']
-    },
-    jasmine : {
-      src : [
-        'src/cts.js',
-        'src/modules/**.js',
-        'src/i18n/**.js', 
-        'src/services/**.js',
-        'src/endpoints/**.js', 
-        'src/xslt/**.js',
-      ],
-      options : {
-        vendor: [
-          'node_modules/jasmine-ajax/lib/mock-ajax.js',
-          'node_modules/jasmine-expect/dist/jasmine-matchers.js',
-          'node_modules/jquery/dist/jquery.min.js',
-          'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
-          'spec/javascripts/.helper.js'
-        ],
-        specs : 'spec/**/*.specs.js',
-        keepRunner : true
-      }
     },
     karma: {
       unit: {
@@ -65,6 +45,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-release');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Default task. 
   grunt.registerTask('default', ['concat', 'uglify']);

@@ -1,7 +1,7 @@
 jQuery CTS Typeahead
 ===
 
-[![Build Status](https://travis-ci.org/Capitains/jQuery.typeahead.svg)](https://travis-ci.org/Capitains/jQuery.typeahead)
+[![Build Status](https://travis-ci.org/Capitains/jQuery.typeahead.svg?branch=master)](https://travis-ci.org/Capitains/jQuery.typeahead)
 
 If you are looking for the CTS Search field, this is here. -If you are looking for droids, these are not the one you are looking for.
 
