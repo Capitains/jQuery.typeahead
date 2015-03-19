@@ -1,7 +1,7 @@
 {
   "name": "capitains-sparrow.typeahead",
   "description": "jQuery typeahead plugin for CTS repositories",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "keywords": [
     "CITE",
     "CTS",
@@ -10,7 +10,7 @@
     "Capitains"
   ],
   "dependencies": {
-    "capitains-sparrow" : "~1",
+    "capitains-sparrow": "~1",
     "typeahead.js": "~0.10.5",
     "jquery": "~2",
     "handlebars": "2.0.0"
@@ -24,7 +24,6 @@
     "grunt-contrib-clean": "~0.6",
     "grunt-release": "0.11.0",
     "grunt-karma": "~0.10",
-
     "jasmine": "~2.2",
     "jasmine-ajax": "~2",
     "jasmine-jquery": "~2",
@@ -73,12 +72,10 @@
   "bugs": {
     "url": "https://github.com/Capitains/jQuery.typeahead/issues"
   },
-  "repository": 
-    {
-      "type": "git",
-      "url": "https://github.com/Capitains/jQuery.typeahead.git"
-    }
-  ,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Capitains/jQuery.typeahead.git"
+  },
   "licenses": [
     {
       "name": "GNU GPL 3.0",
