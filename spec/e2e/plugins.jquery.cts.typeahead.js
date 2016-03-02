@@ -4,6 +4,7 @@ describe('jQuery CTS Typeahead', function() {
     repo1 = jasmine.getFixtures().read('xml/repo.xml');
     repo2 = jasmine.getFixtures().read('xml/repo2.xml');
     repo3 = jasmine.getFixtures().read('xml/repo3.xml');
+    repo5 = jasmine.getFixtures().read('xml/repo-cts5.xml');
     text = jasmine.getFixtures().read('xml/text.xml');
     text_parsed = (new XMLSerializer()).serializeToString((new DOMParser()).parseFromString(text, "text/xml"));
   });
@@ -832,6 +833,73 @@ describe('jQuery CTS Typeahead', function() {
       //-->Test
       remove();
     });
+  });
+  describe("CTS 5", function() {
+
+    /**
+     * 
+     *  Fixtures
+     *  
+     */
+
+    beforeEach(function() {
+      jasmine.Ajax.install();
+      //Creating DOM ELEMENTS
+      input = $j("<input />", { "class" : "target", "type" : "text"});
+      textarea = $j("<textarea />", { "class" : "TEItext"});
+      fixture = $j("<div />", {"class" : "fixture"});
+      fixture.append(input);
+      fixture.append(textarea);
+      $j("body").append(fixture);
+
+      //Applying Plugin
+      input.ctsTypeahead({
+        "endpoint" : "base/spec/javascripts/fixtures/xml/repo-cts5.xml?",
+        "version" : 5,
+        "inventories" : {
+          "annotsrc" : "Nice label for annotsrc"
+        },
+        "retrieve" : ".TEItext"
+      });
+
+      //Getting AJAX
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        "status" : 200,
+        "contentType" : "text/xml",
+        "responseXML" : (new DOMParser()).parseFromString(repo5, "text/xml"),
+        "responseText" : repo5
+      });
+
+      //Creating variables shortcut
+      instance = $j(".target").data("_cts_typeahead");
+      th = instance.typeahead.data("ttTypeahead");
+
+    });
+    afterEach(function() {
+      jasmine.Ajax.uninstall();
+      fixture.remove();
+      instance = null;
+      th = null;
+    });
+
+    /**
+     * 
+     *  Tests
+     *  
+     */
+
+    it("should have data", function() {
+      var keys = Object.keys(instance.repository.inventories);
+      expect(keys.length).toEqual(1);
+    });
+    
+    it("should show data from 1st repository", function() {
+      th.input.$input.val("Hafez");
+      th.input.setQuery("Hafez");
+      th.input.trigger("upKeyed");
+      expect($j(".tt-dataset-texts > .tt-suggestions > .tt-suggestion").length).toEqual(3);
+    });
+
   });
 
 });
