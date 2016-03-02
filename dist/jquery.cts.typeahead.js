@@ -52,7 +52,7 @@
       this.lang = $lang["en"];
     }
 
-    this.repository = new CTS.repository.repository(this.settings.endpoint, 3);
+    this.repository = new CTS.repository.repository(this.settings.endpoint, this.settings.version)
     this._defaultCSS = $css;
     this.css = this.mergeCSS();
     this.typeahead = null;
