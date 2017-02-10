@@ -1,7 +1,7 @@
 {
   "name": "capitains-sparrow.typeahead",
   "description": "jQuery typeahead plugin for CTS repositories",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "CITE",
     "CTS",
@@ -42,7 +42,7 @@
   },
   "contributors": [
     {
-      "name": "Thibault Clérice",
+      "name": "Thibault Clerice",
       "email": "",
       "web": "http://github.com/PonteIneptique"
     },
